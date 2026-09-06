@@ -2,63 +2,88 @@
 
 # Daily Algorithm
 
-**算法学习笔记 · 从理解原理到掌握方法**
+### 算法学习笔记
 
-记录算法思想、梳理建模流程，在学习与复盘中积累。
+从核心思想出发，梳理算法原理、训练流程、参数调优与适用场景。
 
-![Markdown](https://img.shields.io/badge/Notes-Markdown-334155?style=flat-square&logo=markdown&logoColor=white)
-![Python](https://img.shields.io/badge/Examples-Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/ML-scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+![Notes](https://img.shields.io/badge/Notes-Markdown-334155?style=flat-square&logo=markdown&logoColor=white)
+![Examples](https://img.shields.io/badge/Examples-Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Focus](https://img.shields.io/badge/Focus-Tree%20Models-16A34A?style=flat-square)
+![Language](https://img.shields.io/badge/Language-中文-E11D48?style=flat-square)
 
-[关于仓库](#关于仓库) · [笔记导航](#笔记导航) · [阅读建议](#阅读建议) · [使用说明](#使用说明)
+[项目简介](#项目简介) · [学习路线](#学习路线) · [笔记目录](#笔记目录) · [模型对比](#模型对比) · [使用方式](#使用方式)
 
 </div>
 
 ---
 
-## 关于仓库
+## 项目简介
 
-这里是我的算法学习记录，用来整理新知识，也方便日后查阅与复习。
+这是我的算法学习仓库，用于记录新知识、整理关键概念，并沉淀可以随时复习的技术笔记。
 
-目前主要围绕**机器学习中的树模型与集成学习**展开，收录决策树回归、随机森林及随机森林回归笔记。内容包括直观解释、算法流程、超参数调优示例和模型优缺点，示例使用 Python 与 scikit-learn。
+当前内容集中在**机器学习树模型与集成学习**，从单棵决策树出发，逐步学习随机森林的 Bagging 思想，以及 XGBoost、LightGBM 的 Boosting 思想。笔记主要包含：
 
-每次学习，尝试回答四个问题：
+- 算法的核心思路与直观解释
+- 训练和预测的主要流程
+- 目标函数或关键机制
+- 常用超参数与调优示例
+- 模型优势、局限与使用注意事项
 
-- **为什么有效？** 理解算法的核心思想与建模方式。
-- **如何得到结果？** 梳理从训练到预测的主要步骤。
-- **哪些参数值得关注？** 结合示例理解参数的作用与调优方法。
-- **何时适合使用？** 总结模型的优势、局限与使用场景。
+代码示例以 Python 为主，涉及 scikit-learn、XGBoost 与 LightGBM。
 
-## 笔记导航
+## 学习路线
 
-| 主题 | 学习重点 | 示例内容 |
-| :--- | :--- | :--- |
-| [决策树回归](./决策树回归.md) | 特征划分、递归分裂、叶子节点预测、模型优缺点 | `DecisionTreeRegressor` · 网格搜索 · MSE / R² 评估 |
-| [随机森林](./随机森林.md) | 随机采样、随机特征选择、集成预测、模型优缺点 | `RandomForestClassifier` · 网格搜索 · 准确率评分 |
-| [随机森林回归](./随机森林回归.md) | Bootstrap 采样、多树平均、树之间的差异、模型优缺点 | `RandomForestRegressor` · 网格搜索 · R² 评分 |
+```mermaid
+flowchart LR
+    A[决策树回归<br/>单棵树基础] --> B[随机森林<br/>Bagging 集成]
+    B --> C[随机森林回归<br/>多树平均]
+    A --> D[XGBoost<br/>梯度提升与正则化]
+    D --> E[LightGBM<br/>直方图与叶子优先生长]
+```
 
-## 阅读建议
+推荐先掌握决策树如何完成特征划分，再分别沿两条路线学习：
 
-**决策树回归 → 随机森林 → 随机森林回归**
+1. **Bagging 路线**：决策树回归 → 随机森林 → 随机森林回归
+2. **Boosting 路线**：决策树回归 → XGBoost → LightGBM
 
-1. 从[决策树回归](./决策树回归.md)开始，理解一棵树如何划分样本并输出预测。
-2. 阅读[随机森林](./随机森林.md)，认识随机性与多模型集成的思路。
-3. 结合[随机森林回归](./随机森林回归.md)，理解多棵回归树如何协同完成预测。
+## 笔记目录
 
-复习时，可以围绕“单棵树与多棵树”“分类与回归”“模型复杂度与泛化能力”进行对照，再回到笔记中的参数示例加深理解。
+| 序号 | 笔记 | 类型 | 主要内容 |
+| :---: | :--- | :--- | :--- |
+| 01 | [决策树回归](./决策树回归.md) | 基础树模型 | 特征划分、递归分裂、叶子节点预测、网格搜索与模型评估 |
+| 02 | [随机森林](./随机森林.md) | Bagging 集成 | Bootstrap 采样、随机特征选择、分类投票与回归平均 |
+| 03 | [随机森林回归](./随机森林回归.md) | Bagging 回归 | 多棵回归树的集成、模型差异性、参数优化与优缺点 |
+| 04 | [XGBoost](./XGBoost.md) | Boosting 集成 | 目标函数、二阶泰勒展开、正则化、分裂增益与数据泄漏防范 |
+| 05 | [LightGBM](./LightGBM.md) | Boosting 集成 | 直方图算法、叶子优先生长、缺失值处理与参数优化 |
 
-## 使用说明
+## 模型对比
 
-- **在线阅读**：点击上方索引即可查看对应笔记。
-- **本地阅读**：使用支持 Markdown 的编辑器打开本仓库。
-- **代码练习**：笔记中的代码是调参示例片段，运行前需补充必要的导入、数据准备及训练集与测试集划分。
+| 模型 | 树之间的关系 | 结果生成方式 | 主要特点 |
+| :--- | :--- | :--- | :--- |
+| 决策树 | 单棵树 | 叶子节点输出预测 | 结构直观、易于解释，但容易过拟合 |
+| 随机森林 | 多棵树可独立训练 | 分类投票或回归平均 | 通过样本和特征随机性降低方差 |
+| XGBoost | 多棵树按顺序训练 | 累加每轮树的输出 | 使用梯度、Hessian 与正则化优化模型 |
+| LightGBM | 多棵树按顺序训练 | 累加每轮树的输出 | 通过直方图算法和叶子优先生长提高效率 |
 
-如果发现笔记中的疏漏，欢迎通过 [Issues](https://github.com/XYD-GIS/Daily-Algorithm/issues) 交流与指正。
+## 使用方式
+
+可以直接点击[笔记目录](#笔记目录)中的链接在线阅读，也可以将仓库克隆到本地：
+
+```bash
+git clone https://github.com/XYD-GIS/Daily-Algorithm.git
+cd Daily-Algorithm
+```
+
+使用支持 Markdown 的编辑器即可阅读。笔记中的代码以关键示例为主，运行前需根据具体任务补充依赖导入、数据准备以及训练集和测试集划分。
+
+## 交流与反馈
+
+如果发现内容疏漏，或希望交流算法学习心得，欢迎提交 [Issue](https://github.com/XYD-GIS/Daily-Algorithm/issues)。
 
 ---
 
 <div align="center">
 
-<sub>学懂一个原理，留下一个清晰的记录。</sub>
+<sub>理解一个算法，整理一份笔记，积累一次进步。</sub>
 
 </div>
