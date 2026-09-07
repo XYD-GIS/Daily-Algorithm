@@ -1,0 +1,12 @@
+numpy
+pandas
+scikit-learn>=1.6
+joblib
+matplotlib
+tqdm
+shap>=0.48
+xgboost
+lightgbm
+catboost
+openpyxl
+xlrd
