@@ -1,4 +1,4 @@
-# 2026.09.08Extra Trees(Extremely Randomized Trees)
+# Extra Trees(Extremely Randomized Trees)
 
 # 核心思路
 

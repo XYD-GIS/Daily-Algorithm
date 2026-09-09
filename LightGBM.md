@@ -1,4 +1,4 @@
-# 2026.09.05LightGBM(Light Gradient Boosting Machine)
+# LightGBM(Light Gradient Boosting Machine)
 
 # 核心思路及优点
 

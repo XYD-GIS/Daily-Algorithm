@@ -1,4 +1,4 @@
-# 2026.09.06XGBoost(eXtreme Gradient Boosting)
+# XGBoost(eXtreme Gradient Boosting)
 
 # 核心思路及优点
 
